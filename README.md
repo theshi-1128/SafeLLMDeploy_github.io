@@ -1,6 +1,6 @@
 # Nerfies
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [SafeLLMDeploy website](https://theshi-1128.github.io/SafeLLMDeploy_github.io/).
 
 If you find this work useful, please feel free to leave a star⭐️!
 
