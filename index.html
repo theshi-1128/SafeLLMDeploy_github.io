@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SafeLLMDeploy">
+  <meta name="keywords" content="Jailbreaking, LLMs, adversarial, prompting, red teaming">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafeLLMDeploy</title>
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SafeLLMDeploy</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Shi Lin</span>,
+            <span class="author-block">Hongming Yang</span>,
+            <span class="author-block">Wenpeng Xing</span>,
+            <span class="author-block">Meng Han</span
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">IFRC-ZJU-Edu</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Zhejiang University</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">GenTel.io</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/IFRC-ZJU-Edu/SafeLLMDeploy"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div style="text-align: center; margin-top: 10px; margin-bottom: 30px;">
+  <p><i>👋👋👋 Welcome to follow our project!</i></p>
+</div>
+
+
+
+<!-- Explanation video. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <div class="content has-text-justified is-centered">
+      <p>
+        SafeLLMDeploy is a project designed to ensure the secure deployment of large language model (LLM) services. It provides a comprehensive set of automated scripts and configuration files that implement essential security measures during the deployment process. The project includes features like firewall configuration, access control, and the secure setup of services such as Nginx and Fail2Ban. These components work together to protect the LLM service from potential security threats and ensure stable, secure operation. Users can easily deploy the system through a straightforward installation process, and customize security rules to suit their needs, including defining whitelisted IP addresses and ports. Additionally, SafeLLMDeploy automates the process of installing system packages and required services, and ensuring proper service startup and security configurations.    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Project Structure</h2>
+        <div class="content has-text-justified">
+          <p>
+            The project contains the following key directories and files:
+          </p>
+
+          <h3><code>scripts</code> Directory</h3>
+          <p>
+            This directory contains scripts that execute predefined rules, with specific rules stored in their respective subdirectories. The main scripts and their functions are:
+          </p>
+          <ul>
+            <li><code><strong>install.sh</strong></code>: Handles the entire installation process, including system package updates, service installation, and configuration of relevant services and security services.</li>
+            <li><code><strong>start.sh</strong></code>: Starts all security services.</li>
+            <li><code><strong>configure_nginx.sh</strong></code>: Installs and configures Nginx, including checking the Nginx configuration file, copying configuration files, testing configuration syntax, and restarting the service.</li>
+            <li><code><strong>configure_fail2ban.sh</strong></code>: Installs and configures Fail2Ban, including checking the installation, configuring rules, restarting the service, and checking its status.</li>
+            <li><code><strong>configure_nftables.sh</strong></code>: Configures nftables rules, including reading whitelist files, setting IP and port access rules, and persisting the rules.</li>
+          </ul>
+
+          <h3><code>nginx</code> Directory</h3>
+          <p>
+            Contains configuration files and scripts related to Nginx, such as:
+          </p>
+          <ul>
+            <li><code><strong>check.bash</strong></code>: Checks if the port configurations in the Nginx configuration file are correct.</li>
+          </ul>
+
+          <h3><code>nftables</code> Directory</h3>
+          <p>
+            Contains whitelist files for nftables to configure allowed IP addresses and ports:
+          </p>
+          <ul>
+            <li><code><strong>whitelist_ips.txt</strong></code>: Whitelist file listing allowed IP addresses.</li>
+            <li><code><strong>whitelist_ports.txt</strong></code>: Whitelist file listing allowed ports.</li>
+          </ul>
+
+          <h3><code>fail2ban</code> Directory</h3>
+          <p>
+            Contains configuration files for Fail2Ban to define protection rules.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Installation and Usage</h2>
+        <div class="content has-text-justified">
+          <p>
+            1. Clone the project to your local machine:
+          </p>
+          <pre><code>git clone git@github.com:IFRC-ZJU-Edu/SafeLLMDeploy.git
+cd SafeLLMDeploy</code></pre>
+          <p>
+            2. Run the installation script:
+          </p>
+          <pre><code>chmod +x scripts/install.sh
+./scripts/install.sh</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Notes</h2>
+        <div class="content has-text-justified">
+          <p>
+            - Make sure you have sufficient permissions (typically <code>root</code> or use <code>sudo</code>) before running the installation script.
+            <br>
+            - Modify the whitelist files (<code>whitelist_ips.txt</code> and <code>whitelist_ports.txt</code>) according to your needs to allow specific IP addresses and ports to access the services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Contact</h2>
+    Please feel free to email us at <code>mhan@zju.edu.cn</code> if you have any questions.
+    <br>
+    If you find this work useful, please feel free to leave a star⭐️!
+  </div>
+</section>
